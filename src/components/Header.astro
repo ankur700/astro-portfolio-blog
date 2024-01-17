@@ -1,6 +1,5 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
-import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
@@ -10,7 +9,7 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<header>
+<header class="header">
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
@@ -113,15 +112,16 @@ const { activeNav } = Astro.props;
       </nav>
     </div>
   </div>
-  <Hr />
 </header>
 
 <style>
+  .header { @apply isolate bg-skin-fill shadow-lg ring-1 ring-black/5 bg-opacity-20 backdrop-filter backdrop-blur-lg sticky top-0 z-10 w-full firefox:bg-opacity-90
+  }
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
   .nav-container {
-    @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
+    @apply  mx-auto flex max-w-3xl flex-col items-center  justify-between sm:flex-row;
   }
   .top-nav-wrap {
     @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
