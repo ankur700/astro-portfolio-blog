@@ -41,83 +41,97 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        I am an aspiring, passionate & self-taught web developer, i love minimalism. I like challenges, pushing my limits and learning something new.
+        Hey there! Welcome to my corner of the web! I'm a self-taught web
+        developer on a mission to turn caffeine into code and pixels into
+        perfection.
       </p>
+
       <p>
-        Read the blog posts or check
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="/cv"
-        >
-          CV
-        </LinkButton> if you are hiring or interested.
+        Born out of a passion for problem-solving and a relentless curiosity for
+        all things digital, this portfolio encapsulates the journey of a
+        self-driven individual navigating the ever-evolving landscape of web
+        development. With each project, a story unfolds—a narrative of
+        challenges conquered, skills honed, and boundaries pushed.
       </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social handles:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
 
-    <Hr />
-
+      <p>Here, you'll find a collection of my digital adventures—where creativity
+      meets coffee-fueled coding sessions. From sleek designs to robust
+      functionality, I've got you covered. So, grab a seat, buckle up, and let's
+      dive into the wild world of web development together!.</p>
+    <p>
+      Read the blog posts or check
+      <LinkButton
+        className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+        href="/cv"
+      >
+        CV
+      </LinkButton> if you are hiring or interested.
+    </p>
     {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
+      // only display if at least one social link is enabled
+      socialCount > 0 && (
+        <div class="social-wrapper">
+          <div class="social-links">Social handles:</div>
+          <Socials />
+        </div>
+      )
+    }
+  </main>
+
+  <Hr />
+
+  {
+    featuredPosts.length > 0 && (
+      <>
+        <section id="featured">
+          <h2>Featured</h2>
+          <ul>
+            {featuredPosts.map(({ data, slug }) => (
+              <Card
+                href={`/posts/${slug}`}
+                frontmatter={data}
+                secHeading={false}
+              />
+            ))}
+          </ul>
+        </section>
+        <Hr />
+      </>
+    )
+  }
+
+  <section id="recent-posts">
+    <h2>Recent Posts</h2>
+    <ul>
+      {
+        sortedPosts
+          .filter(({ data }) => !data.featured)
+          .map(
+            ({ data, slug }, index) =>
+              index < 4 && (
                 <Card
                   href={`/posts/${slug}`}
                   frontmatter={data}
                   secHeading={false}
                 />
-              ))}
-            </ul>
-          </section>
-          <Hr />
-        </>
-      )
-    }
-
-    <section id="recent-posts">
-      <h2>Recent Posts</h2>
-      <ul>
-        {
-          sortedPosts
-            .filter(({ data }) => !data.featured)
-            .map(
-              ({ data, slug }, index) =>
-                index < 4 && (
-                  <Card
-                    href={`/posts/${slug}`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )
-        }
-      </ul>
-      <div class="all-posts-btn-wrapper">
-        <LinkButton href="/posts">
-          All Posts
-          <svg xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-            ></path>
-          </svg>
-        </LinkButton>
-      </div>
-    </section>
-  </main>
-
-  <Footer />
+              )
+          )
+      }
+    </ul>
+    <div class="all-posts-btn-wrapper">
+      <LinkButton href="/posts">
+        All Posts
+        <svg xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+          ></path>
+        </svg>
+      </LinkButton>
+    </div>
+  </section>
 </Layout>
+
+<Footer />
 
 <style>
   /* ===== Hero Section ===== */
