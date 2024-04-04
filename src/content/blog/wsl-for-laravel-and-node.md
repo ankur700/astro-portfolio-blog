@@ -1,5 +1,5 @@
 ---
-title: Fast and easy Laravel development environmnet in Windows with WSL
+title: "Mastering Laravel Development on Windows: A WSL-powered Guide for Speed and Simplicity"
 author: Ankur Singh
 pubDatetime: 2024-04-04T04:06:31Z
 slug: wsl-setup-for-laravel-development
