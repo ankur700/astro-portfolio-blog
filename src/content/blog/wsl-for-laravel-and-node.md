@@ -40,7 +40,7 @@ wsl --list --online
 wsl --install -d Ubuntu-22.04
 ```
 
-After the installation is done you will be prompted to create a user account and password for your newly installed Linux distribution.
+After the installation is finished you will be prompted to create a user account and password for your newly installed Linux distribution.
 
 ## Post Install
 
@@ -63,7 +63,7 @@ Now we are ready to start setting up our Linux development environment. Lets sta
 **Utilities**
 
 ```bash
-sudo apt-get install --no-install-recommends ca-certificates apt-transport-https software-properties-common
+sudo apt-get install ca-certificates apt-transport-https software-properties-common
 ```
 
 **Tools**
@@ -83,20 +83,26 @@ sudo apt-get update
 sudo apt-get install php8.3 php8.3-cli php8.3-common
 ```
 
-Check the version of PHP installed by typing <font color="#e36c09">php -v</font>
+To check the version of PHP installed use the command: <font color="#e36c09">php -v</font>
+
+```bash
+php -v
+```
 
 ![php version](../../../public/assets/php-version.png)
 
 Install required extensions by replacing php\* with your php version and [extention] with name of the extension.
 
 ```bash
+# Sytax to install php extensions
 sudo apt install php*-[extension]
 
+# Install multiple extension
 sudo apt install php8.3-{bcmath,curl,fpm,mysql,mbstring,xml,zip}
 
 ```
 
-To check loaded PHP modules use the command:
+To check loaded PHP modules use the command: <font color="#e36c09">php -m</font>
 
 ```bash
 php -m
@@ -245,7 +251,7 @@ Make zsh your default shell
 chsh -s $(which zsh)
 ```
 
-### [OhMyZsh](https://ohmyz.sh/) (Plugin manager for ZSH)
+### [OhMyZsh](https://ohmyz.sh/) (Configuration manager for ZSH)
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
